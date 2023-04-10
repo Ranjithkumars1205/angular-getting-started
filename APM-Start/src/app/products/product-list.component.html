@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle!}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">Filter By:</div>
+            <div class="col-md-4">
+                <input [(ngModel)]="listFilter" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Filtered By: {{listFilter}}</h4>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="products.length">
+                <thead>
+                    <tr>
+                        <th> <button class="btn btn-primary" (click)="showImageHandler()">{{showImage ? 'Hide': 'Show'}} Image</button></th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of filteredProduct">
+                        <!-- we should place ngIf inside the img tag only -->
+                        <td><img *ngIf="showImage" [src]="product.imageUrl" [title]="product.productName | uppercase" alt="" [style.width.px]="imageWidth" [style.height.px]="imageHeight"></td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCode | lowercase}}</td>
+                        <td>{{product.releaseDate}}</td>
+                        <td>{{product.price | currency:'INR':'symbol':'2.1-3'}}</td>
+                        <!-- Refer for currency digit - https://www.angularjswiki.com/angular/angular-currency-pipe-formatting-currency-in-angular/ -->
+                        <td><pm-star (ratingClicked)="OnRatingClicked($event)" [rating]="product.starRating"></pm-star></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+
+/* we can modify the thead element styles directly because this stylesheet is encapsulated in this
+component, and the styles defined here won't affect any other component in the application. */
+thead {
+    color: #337AB7;
+}
