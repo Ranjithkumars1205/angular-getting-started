@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 // class should be in pascal case
 // variable and method should be in camel case
 export class AppComponent {
-  title = 'Angular: Getting Started';
+  pageTitle = 'Acme Product Management';
 }

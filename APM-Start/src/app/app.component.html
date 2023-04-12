@@ -1,11 +1,22 @@
-<div>
-  <h1>{{title}}</h1>
+<!-- <div> -->
+    <!-- <h1>{{title}}</h1>
   <pm-products></pm-products>
 </div>
-
-
-
-<!-- <div style="text-align:center">
+ -->
+    <nav class='navbar navbar-expand navbar-light bg-light'>
+        <a class='navbar-brand'>{{pageTitle}}</a>
+        <ul class="nav nav-pills">
+            <li><a class='nav-link' routerLink='/welcome'>Home</a></li>
+            <!-- We don't need use this syntax -->
+            <li><a class='nav-link' routerLink="/products">Product List</a></li>
+            <!-- above one is shortcut syntax but we can't use this syntax if the array contains multiple elements when passing 
+            parameters. when the user selects the options, the associated route is activated. -->
+        </ul>
+    </nav>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    <!-- <div style="text-align:center">
   <h1>
     Welcome to {{title}}!!
   </h1>
