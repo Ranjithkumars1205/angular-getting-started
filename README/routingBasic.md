@@ -70,7 +70,7 @@ Exports Array:
 we can share an Angular module's components, directives, and pipes with other modules. we can export any of this module's components, directives and pipes so they can be pulled in when another module when imports this
 module using the imports array. we can also reexport system angular modules such as FormsModule, 
 
-importing a module does NOT provide access to its imported modules like formsModule, comment out sharedModule exports array formModule.
+importing a module does NOT provide access to its imported modules like formsModule, just comment out sharedModule exports array formModule.
 
 Feature module:
 basic application features - such as welcomeComponent
@@ -78,4 +78,4 @@ product features - productComponent
 shared features - starComponent
 
 ng g m products/product --flat -m app 
-m - -> to pull the functionality 
+m - -> to pull the functionality  
