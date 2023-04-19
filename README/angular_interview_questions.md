@@ -1670,11 +1670,19 @@ CSS3 & SCSS -
 property binding
 
 
-ngAfterViewInit
+ngAfterViewInit - ngAfterViewInit() is called after all child components are initialized and checked.
+
+suppose we want to updated data from child component when we update count value from 0 to 1 by click event in the button, to the parent component where we have viewChildren 
+ngAfterViewChecked - we can get child component updated data from parent by viewChildren in the ngAfterViewChecked.
+
+ngAfterViewInit() is called once after ngAfterContentChecked
 
 propety binding
 
-authentication and authorization 
+Authentication and authorization 
+
+Authentication verifies the identity of a user or service, and authorization determines their access rights.
+
 Authentication  (Login, Registration) is the process matching the visitor of a web application with the pre-defined set of user identity in the system. In other word, 
 it is the process of recognizing the user’s identity. Authentication is very important process in the system with respect to security.
 https://www.tutorialspoint.com/angular8/angular8_authentication_and_authorization.htm#:~:text=In%20other%20word%2C%20it%20is,certain%20resource%20in%20the%20system.
@@ -1724,8 +1732,25 @@ Product roadmap creation. ...
 Release planning. ...
 Sprint planning. ...
 Daily stand-ups. ...
-Sprint review and retrospective.
+Sprint review and retrospective. 
 
+Grooming is an open discussion between the development team and product owner. The user stories are discussed to help the team gain a better understanding of the functionality that is needed to fulfill a story.
+
+A spike story in Agile is a user story that needs more information so the team can estimate how long the story will take to complete
+
+Product Backlog refinement (Grooming) meeting -  (Stories)
+
+sprint backlog (Tasks)
+
+sprint planning
+
+daily scrum 
+
+sprint review 
+
+sprint retropective - The team reflects on how everything went and then decides what changes they want to make in the next iteration. 
+ 
+Grooming -   Add new user stories based on newly discovered requirements. Remove user stories which are no longer required for the product. Fine-tune estimates of user stories
 ---------------------------------------------------------------
 
 mock json - 
@@ -1783,7 +1808,3 @@ function factorial(n){
 let n = 4;
 answer = factorial(n)
 console.log("Factorial of " + n + " : " + answer);
-
-
-
- 
