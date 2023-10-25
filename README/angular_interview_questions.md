@@ -289,7 +289,7 @@ below example will clear our doubts:
 
 import { Observable } from 'rxjs';
 
-/****\*\***** Promise ******\*\*******/
+/\***\*\*\*\*\*** Promise **\*\***\*\***\*\***/
 const prom = new Promise((resolve, \_reject) => {
 //only this value will be resolved
 resolve(1);
@@ -307,7 +307,7 @@ prom.then((value) => {
 console.log('resolved promise value - ', value);
 });
 
-/****\*\*\*\***** Observable ****\*\*\*****/
+/\***\*\*\*\*\*\*\*** Observable \***\*\*\*\*\*\***/
 const obs = new Observable((subscriber) => {
 //multiple values can be emitted
 subscriber.next(1);
@@ -1280,8 +1280,8 @@ it runs before any child route is activated.
 CanDeactivate - handling unsaved changes
 CanLoad- The canActivate guard still allows the component for a given route to be activated (but not navigated to).
 If we wanted to prevent activation altogether, we could use the canLoad guard.
-  
- PreloadAllModules strategy does not preload some couple of feature which is protected by a canLoad is blocked it.
+
+PreloadAllModules strategy does not preload some couple of feature which is protected by a canLoad is blocked it.
 The CanLoad Guard prevents the loading of the Lazy Loaded Module. We generally use this guard when we do not want to unauthorized user to
 navigate to any of the routes of the module and also stop then even see the source code of the module.
 
