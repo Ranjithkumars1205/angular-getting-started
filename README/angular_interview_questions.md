@@ -6,7 +6,7 @@ Older version of HTML are less mobile-friendly. HTML5 language is more mobile-fr
 
 Allows JavaScript to run in background. This is possible due to JS Web worker API in HTML5.
 
-Doctype declaration is quite simple and easy. (<!DOCTYPE html><html></html>)
+Doctype declaration is quite simple and easy. (<!DOCTYPE html><html></html>) - DOCTYPE," is a declaration that specifies the type and version of the HTML being used in a web document.
 
 Character encoding is simple and easy.
 
@@ -127,9 +127,12 @@ Angular is a platform and framework for building single-page client applications
 
 - It is typescript feature.
 - It will enhance your classes
-  So, how does angular compiler that compiles your code and transform it into scripts that is ready to be run in browser? This happens because of decorators.
-  In a simple terms, decorators allows you to attach meta data with the type script class using which angular knows whether that class is a component or directive or module or etc
-  If you use decorator (@Component and @NgModule)in class, angular knows whether that class is a component or directive or module or etc.
+
+In Angular and TypeScript, decorators are used to add metadata to classes, properties, and methods, which allows you to configure and extend their behavior.
+
+So, how does angular compiler that compiles your code and transform it into scripts that is ready to be run in browser? This happens because of decorators.
+In a simple terms, decorators allows you to attach meta data with the type script class using which angular knows whether that class is a component or directive or module or etc
+If you use decorator (@Component and @NgModule)in class, angular knows whether that class is a component or directive or module or etc.
 
 15. is it possible for building apk in angular - no
 
@@ -558,6 +561,8 @@ Create the feature with the CLI, using the --route flag.
 
 Achievement - Web socket java print, duplicate tab using jquery
 
+A WebSocket is a communication protocol that provides full-duplex, bidirectional communication channels over a single TCP connection. Unlike traditional HTTP, which is request-response-based, WebSocket allows for continuous, low-latency, and real-time data exchange between a client (such as a web browser) and a server. It's often used for applications that require real-time updates, interactivity, and instant data transfer.
+
 Reducing bundle size check with GTmetrix (65 to 71 for 100%), replacing heavy package into light weigh package, image, lazy loading,
 
 enough to load viewport data from api - whenever scrolling only .. not singleshot
@@ -685,7 +690,7 @@ geolocation track - last
 ---
 
 ecma 6 features - http://es6-features.org/#RegularExpressionStickyMatching - block scope variable (let), string interpolation ( `${a}`), const, set,
-spread operator - // used for clone the values
+spread operator - // used for clone the values, - used to copy the content of the array or object
 rest operator - Rest parameter syntax will create an array from an indefinite number of values
 function f (x, y, ...a) {
 return (x + y) \* a.length (as changed array ["hello", true, 7])
@@ -1225,7 +1230,11 @@ install boostrap using npm i boostrap --save
    1.Fluid Layout (.container-fluid) - Fluid layout has 100% width.
    2.Fixed Layout (.container) - its means max-width changes at each breakpoint - Fluid layout continuously resizes 
    as you change the width of your window/browser by any amount, leaving no extra empty space on the sides ever Hence it is named as “fluid layout”.
-   
+
+while Bootstrap's grid system and responsive classes like col-xl and col-lg provide a solid foundation for creating responsive layouts, media queries offer a more flexible and precise way to adapt your design to various screen sizes and customize your layout as needed. They are a crucial tool for ensuring a seamless user experience across different devices and screen sizes.
+
+Media queries in Bootstrap are used to create responsive designs that adapt to different screen sizes and devices. While the col-xl and col-lg classes help control the column width for large and extra-large screens, media queries provide more fine-grained control over the layout by allowing you to make adjustments at specific breakpoints.
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
 
@@ -1678,6 +1687,13 @@ name: 'myPipe',
 pure: false  
 })
 Impure pipes execute every time angular detects any changes regardless of the change in the input value.
+
+Pure pipe example - {{ someDate | date:'short' }} - Pure pipes are the default type of pipes in Angular. They are called pure because they are expected to produce the same output for the same input, making them idempotent.
+Impure pipe example - {{ someNumber | random }} - Impure pipes, as the name suggests, are not idempotent. They can have side effects, and Angular will re-run them every time change detection is triggered, regardless of whether the input data has changed.
+
+formly in angular
+
+ts config
 
 structure (ngIF)and attribute (ngClass, ngStyle) directive
 
