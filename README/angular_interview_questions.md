@@ -216,7 +216,62 @@ https://www.thinktecture.com/en/angular/promises-vs-observables/
 
 Multicast: check 279 example
 
-Observable (Unicast) vs Subject (Multicast) ? - Each subscribed Observer owns an independent of the Observable
+Observable (Unicast) vs Subject (Multicast) ? -
+
+Unicast Observable:
+Unicast observables follow a "one-to-one" model, where each subscriber receives its own independent copy of the data stream. When you have multiple subscribers to a unicast observable, each subscriber operates on its unique instance of the observable, isolated from other subscribers.
+
+Multicast Observable:
+Multicast observables follow a "one-to-many" model, where there is a single source of data shared among multiple subscribers. When you have multiple subscribers to a multicast observable, they all share the same data source, and any values emitted through the source are received by all subscribers.
+
+Real-Time Unicast Observable Example:
+In this example, imagine monitoring stock prices with individual real-time updates for multiple investors:
+import { Observable, interval } from 'rxjs';
+
+// Simulate a stock price stream (unicast observable)
+const stockPriceStream = new Observable<number>((subscriber) => {
+const priceUpdates = interval(1000); // Emit a new price every second
+priceUpdates.subscribe((price) => {
+subscriber.next(price \* Math.random()); // Simulate stock price updates
+});
+});
+
+// Investor 1 subscribes to the stock price updates
+stockPriceStream.subscribe((price) => {
+console.log('Investor 1: Stock Price - $' + price.toFixed(2));
+});
+
+// Investor 2 subscribes to the stock price updates
+stockPriceStream.subscribe((price) => {
+console.log('Investor 2: Stock Price - $' + price.toFixed(2));
+});
+
+In this example, both Investor 1 and Investor 2 receive their own independent stream of stock price updates, reflecting the "one-to-one" unicast model. They are not sharing the data with each other.
+
+Real-Time Multicast Observable Example:
+Multicast observables are suitable when you want multiple subscribers to share the same data source, as in a real-time chat application where all participants receive the same messages:
+
+import { Subject } from 'rxjs';
+
+// Create a chat message multicast observable
+const chatMessages = new Subject<string>();
+
+// Participant 1 subscribes to the chat messages
+chatMessages.subscribe((message) => {
+console.log('Participant 1 received: ' + message);
+});
+
+// Participant 2 subscribes to the chat messages
+chatMessages.subscribe((message) => {
+console.log('Participant 2 received: ' + message);
+});
+
+// Simulate sending a chat message
+chatMessages.next('Hello, everyone!'); // Both participants receive the same message
+
+In this chat example, both Participant 1 and Participant 2 share the same data source (the chatMessages subject). When a new message is sent, it's received by both participants, demonstrating the "one-to-many" multicast model.
+
+These examples illustrate the practical use of unicast and multicast observables in real-time scenarios where subscribers either receive independent data streams or share the same data source for collaborative applications.
 
 Let's see an example of observable (What is meant by unicast)
 
@@ -955,6 +1010,8 @@ TypeScript compiler can compile the .ts files into ES3,ES4 and ES5 also.
 Is there multiple inherentence in ts? Using interface it will possible - https://codeburst.io/multiple-inheritance-with-typescript-mixins-d92d01198907
 
 How to do method overloading in ts?
+How to do function overloading in ts?
+TypeScript provides the concept of function overloading. You can have multiple functions with the same name but different parameter types and return type. However, the number of parameters should be the same.
 
 What is Async and await? https://javascript.info/async-await
 
@@ -1670,8 +1727,10 @@ Authentication (Login, Registration) is the process matching the visitor of a we
 it is the process of recognizing the user’s identity. Authentication is very important process in the system with respect to security.
 https://www.tutorialspoint.com/angular8/angular8_authentication_and_authorization.htm#:~:text=In%20other%20word%2C%20it%20is,certain%20resource%20in%20the%20system.
 
+how was authentication done in your last project?
+
 Authorization is the process of giving permission to the user to access certain resource in the system.
-Only the authenticated user can be "authorised" to access a resource. - auth guard
+Only the authenticated user can be "authorised" to access a resource. - auth guard - example - admin only access to some feature.
 https://www.bezkoder.com/angular-14-jwt-auth/
 
 HttpRequestInterceptor implements HttpInterceptor. We’re gonna add withCredentials: true to make browser include
@@ -1718,8 +1777,8 @@ What are the 6 steps in Agile project management?
 Project planning. ...
 Product roadmap creation. ...
 Release planning. ...
-Sprint planning. ...
-Daily stand-ups. ...
+Sprint planning. ... developement
+Daily stand-ups. ... testing, deployment
 Sprint review and retrospective.
 
 Grooming is an open discussion between the development team and product owner. The user stories are discussed to help the team gain a better understanding of the functionality that is needed to fulfill a story.
@@ -1813,3 +1872,24 @@ find small number in the array - Math.min(...array)
 event looping - setTimeout, setInterval
 
 how to render two router-outlet at the same time - named outlet
+
+(function() {
+try {
+try {
+throw new Error('oops');
+} catch (ex) {
+console.error('inner', ex.message);
+throw ex;
+} finally {
+console.log('finally');
+return;
+}
+} catch(ex) {
+console.error('outer', ex.message);
+}
+})
+
+Output:
+inner oops;
+finally
+
