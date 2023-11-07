@@ -136,6 +136,36 @@ If you use decorator (@Component and @NgModule)in class, angular knows whether t
 
 15. is it possible for building apk in angular - no
 
+how to set environment path in angular
+
+Immediately Invoked Function Expression in js
+
+how to bind only value of the variable in html which is declared in ts like header = "<div> <h2>Hi , Hello</h2></div>" in angular ?
+In Angular, you can bind the value of a variable declared in your TypeScript code to your HTML template using string interpolation or property binding. If you want to bind the header variable's value to an HTML element, you can do it like this:
+
+Using String Interpolation:
+In your TypeScript file (e.g., app.component.ts), declare the header variable:
+
+header = "<div><h2>Hi, Hello</h2></div>";
+In your HTML template (e.g., app.component.html), use string interpolation to bind the header variable to an HTML element:
+
+<div [innerHTML]="header"></div>
+By using [innerHTML]="header", you can set the inner HTML of the div to the value of the header variable. This will render the HTML content stored in the header variable.
+
+Using Property Binding:
+
+If you want to bind the header variable to an HTML element's attribute or property, you can do so using property binding. For example, if you want to set the title attribute of a div element:
+
+In your TypeScript file (e.g., app.component.ts), declare the header variable:
+
+header = "Hi, Hello";
+In your HTML template (e.g., app.component.html), use property binding to bind the header variable to the title attribute of a div element:
+
+<div [title]="header">Some content</div>
+In this case, the header variable's value will be bound to the title attribute of the div element.
+
+Choose the approach that best fits your use case, whether you want to insert HTMLcontent or bind to an element's attribute or property.
+
 16. what is anchor tag
 
 The <a> tag defines a hyperlink, which is used to link from one page to another
@@ -1892,4 +1922,3 @@ console.error('outer', ex.message);
 Output:
 inner oops;
 finally
-
